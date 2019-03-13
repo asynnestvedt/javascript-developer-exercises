@@ -11,7 +11,20 @@ function paintMixer(color1, color2) {
   The order of the params should not matter.
   */
   // PLACE YOUR CODE BELOW
-
+  let nameKeyMap = {
+    'blue': 1,
+    'red': 2,
+    'green': 4,
+    'yellow': 8,
+    /** mixed colors */
+    'purple': 3,
+    'brown': 6,
+  }
+  /**
+   * clone & invert nameKeyMap from above
+   **/
+  let numKeyMap = Object.assign({}, ...Object.entries(nameKeyMap).map(([a,b]) => ({ [b]: a })))
+  return numKeyMap[(nameKeyMap[color1.toLowerCase()] || 256) + (nameKeyMap[color2.toLowerCase()] || 256)] || "unknown"
   // PLACE YOUR CODE ABOVE
 }
 
